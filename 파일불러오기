@@ -1,0 +1,38 @@
+# 파일 불러오기
+from google.colab import files
+
+uploaded = files.upload()
+
+for fn in uploaded.keys():
+  print('User uploaded file "{name} with length {length} bytes'.format(
+    name=fn, length=len(uploaded[fn])))
+    
+# 데이터셋만들기
+import io
+import pandas as pd
+
+df = pd.read_csv(io.StringIO(uploaded['SampleData.csv'].decode('utf-8')))    
+
+
+# 출력 하기
+data = df.values
+
+print(df)
+
+print(data)
+
+# normalize_series 는 못했다.
+
+print(df.head())
+
+af = pd.DataFrame(data,
+                  index=['1','2','3','4','5'],
+                  columns=['A','B','C','D','E','F']
+                  )
+
+
+display(af)
+
+af.loc['1']
+
+af.loc['1']
