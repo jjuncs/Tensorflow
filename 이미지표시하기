@@ -1,0 +1,13 @@
+# 존재하는(업로드 되어있는) 이미지
+import matplotlib.pyplot as plt
+from matplotlib.image import imread
+
+img = imread('7_280_280.png') # 이미지 읽어오기
+plt.imshow(img)
+
+plt.show()
+
+
+# 테스트이미지 reshape
+plt.imshow(X_test[i].reshape(28,28))
+plt.show()
