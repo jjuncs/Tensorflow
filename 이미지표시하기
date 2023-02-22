@@ -1,3 +1,14 @@
+# 1 ####################################################################
+# 이미지 업로드
+from google.colab import files
+
+uploaded = files.upload()
+
+for fn in uploaded.keys():
+  print('User uploaded file "{name} with length {length} bytes'.format(
+    name=fn, length=len(uploaded[fn])))
+    
+
 # 존재하는(업로드 되어있는) 이미지
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
@@ -7,7 +18,48 @@ plt.imshow(img)
 
 plt.show()
 
-
 # 테스트이미지 reshape
 plt.imshow(X_test[i].reshape(28,28))
 plt.show()
+
+
+
+
+# 2 ####################################################################
+# horse-human Data Generator
+
+import urllib.request
+import zipfile
+
+url = "https://storage.googleapis.com/learning-datasets/horse-or-human.zip"
+file_name = "horse-or-human.zip"
+training_dir = 'horse-or-human/training/'
+urllib.request.urlretrieve(url, file_name)
+
+zip_ref = zipfile.ZipFile(file_name, 'r')
+zip_ref.extractall(training_dir)
+zip_ref.close()
+
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# 전체 이미지를 1./255로 스케일을 조정합니다.
+train_datagen = ImageDataGenerator(rescale=1/255)
+
+train_generator = train_datagen.flow_from_directory(
+    training_dir,
+    target_size=(300, 300),
+    class_mode='binary'
+)
+
+# 이미지 보여주기
+import matplotlib.pyplot as plt
+
+augs = train_generator.__getitem__(8)
+
+plt.figure(figsize=(16, 8))
+for i, img in enumerate(augs[0]):
+    plt.subplot(4, 8, i+1)
+    plt.title('%.2f' % augs[1][i])
+    plt.axis('off')
+    
+    plt.imshow(img)
