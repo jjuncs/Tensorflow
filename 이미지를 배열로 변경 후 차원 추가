@@ -1,0 +1,37 @@
+
+import sys
+
+# 코랩을 사용중인지 확인합니다.
+if 'google.colab' in sys.modules:
+    from google.colab import files
+    uploaded = files.upload()
+    sample_images = ['/content/' + fn for fn in uploaded.keys()]
+
+    # 업로드된 파일이 없으면 깃허브에서 다운로드합니다.
+    if len(uploaded) < 1:
+        import gdown
+        base_url = 'https://github.com/rickiepark/aiml4coders/raw/main/ch03/'
+        for i in range(1,4):
+            gdown.download(base_url + 'hh_image_{}.jpg'.format(i))
+        sample_images = ['/content/hh_image_{}.jpg'.format(i) for i in range(1,4)]
+
+# 로컬 컴퓨터면 ch03 폴더에 있는 이미지를 사용합니다.
+else:
+    sample_images = ['hh_image_{}.jpg'.format(i) for i in range(1,4)]
+    
+############## 아래가 차원 추가 ################################    
+    
+for fn in sample_images:
+    # 이미지 출력
+    plt.imshow(mpimg.imread(fn))
+    plt.show()
+    
+    # 이미지 불러오기
+    img = tf.keras.utils.load_img(fn, target_size=(300, 300))   # 모델이 이 크기의 이미지를 인식하도록 훈련되었기 때문
+    x = tf.keras.utils.img_to_array(img)
+    print(x.shape)
+    x = np.expand_dims(x, axis=0) # 모델이 3D 배열을 기대하기 때문
+    
+   # print(x.shape)
+
+    classes = model.predict(x)
