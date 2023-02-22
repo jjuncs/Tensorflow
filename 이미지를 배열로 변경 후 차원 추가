@@ -35,3 +35,10 @@ for fn in sample_images:
    # print(x.shape)
 
     classes = model.predict(x)
+    
+    
+############## 위에처럼 for 문 돌리고 싶지 않으면 아래코드로 변경     
+fn = sample_images[1]
+plt.imshow(mpimg.imread(fn))
+plt.show()
+
