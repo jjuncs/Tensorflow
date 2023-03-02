@@ -15,3 +15,20 @@ plt.title("loss")
 plt.legend()
 
 plt.show()
+
+
+################### 값 직접 넣은 그래프 (막대와 점) ####################
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.figure(figsize=(10,6))
+
+x = np.array([1,2,3,4,5,6,7,8,9,10])
+y = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+y2 = np.array([1.5, 2, 3.5, 4, 5.5, 6, 7, 8, 9, 10])
+
+plt.plot(x, y, c = 'blue', label="accuracy")
+plt.scatter(x, y2, c = 'red')
+plt.title("accuracy")
+plt.legend()
