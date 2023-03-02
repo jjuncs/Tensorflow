@@ -1,5 +1,6 @@
 
 import sys
+import matplotlib.image as mpimg
 
 # 코랩을 사용중인지 확인합니다.
 if 'google.colab' in sys.modules:
