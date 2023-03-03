@@ -1,0 +1,44 @@
+validation_url = "https://storage.googleapis.com/learning-datasets/validation-horse-or-human.zip"
+
+validation_file_name = "validation-horse-or-human.zip"
+validation_dir = 'horse-or-human/validation/'
+urllib.request.urlretrieve(validation_url, validation_file_name)
+
+zip_ref = zipfile.ZipFile(validation_file_name, 'r')
+zip_ref.extractall(validation_dir)
+zip_ref.close()
+
+validation_datagen = ImageDataGenerator(rescale=1/255)
+
+validation_generator = validation_datagen.flow_from_directory(
+    validation_dir,
+    target_size=(300, 300),
+    class_mode='binary'
+)
+
+
+
+train_generator = train_datagen.flow_from_directory(
+    training_dir,
+    batch_size=20,
+    class_mode='binary',
+    target_size=(150, 150)
+)
+
+validation_generator = validation_datagen.flow_from_directory(
+    validation_dir,
+    target_size=(150, 150),
+    class_mode='binary'
+)
+
+
+
+import matplotlib.pyplot as plt
+
+x_train, y_train = train_generator.next()
+
+for idx in range(len(x_train)-len(x_train)+2):
+    print('x_train[idx].shape',x_train[idx].shape)
+    print('y_train[idx]',y_train[idx])
+    plt.imshow(x_train[idx])
+    plt.show()
