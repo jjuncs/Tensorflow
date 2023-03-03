@@ -1,0 +1,14 @@
+dataset = tfds.load(name='horses_or_humans', split=tfds.Split.TRAIN)
+
+# dict 형식으로 받는 경우 (as_supervised=False)
+for data in dataset.take(1):
+    plt.imshow(data['image'])
+    print(data['label'].numpy())
+    
+    
+dataset = tfds.load(name='horses_or_humans', split=tfds.Split.TRAIN, as_supervised=True)  
+
+# tuple 형식으로 받는 경우
+for image, label in dataset.take(1):
+    plt.imshow(image)
+    print(label.numpy())    
