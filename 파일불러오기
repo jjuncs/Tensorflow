@@ -36,3 +36,16 @@ display(af)
 af.loc['1']
 
 af.loc['1']
+
+
+
+
+###### json 파일 읽기
+
+import json
+with open("sarcasm.json", 'r') as f:
+    datastore = json.load(f)
+    for item in datastore:
+        sentence = item['headline'].lower()
+        label= item['is_sarcastic']
+        link = item['article_link']
