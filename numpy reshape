@@ -1,0 +1,36 @@
+import numpy as np;
+
+#예를 들면 (2,4) 차원의 배열을 reshape 기능을 통해 (8,) 차원으로 변경이 가능합니다.
+#배열의 사이즈만 같다면 다차원으로 자유롭게 변형이 가능합니다.
+test_array = [[1,2,3,4],[1,2,3,4]];
+
+#가장 먼저 numpy를 import 하고 테스트 배열을 만들어 줍니다.
+test_matrix = np.array(test_array);
+test_matrix.shape;
+
+-- 출력 --
+(2,4)
+
+
+# np.array를 생성 한 뒤 shape 하면 해당 차원이 몇 차원인지 표시해줍니다.
+test_matrix = np.array(test_array).reshape(8,);
+test_matrix
+
+-- 출력 --
+array([1, 2, 3, 4, 1, 2, 3, 4])
+
+
+# 만들어진 행렬을 reshape을 하면 차원을 변경할 수 있습니다.
+test_matrix = np.array(test_array).reshape(2,2,2);
+test_matrix
+     (adsbygoogle = window.adsbygoogle || []).push({});
+-- 출력 -- array([[[1, 2], [3, 4]], [[1, 2], [3, 4]]])
+
+
+#flatten은 배열을 1차원 형태의 배열로 변환해주는 명령어입니다.
+#1차원 형태의 배열이 필요하다면 reshape 보다 간편하게 flatten만 사용하여 배열을 만들어 줄 수 있습니다.
+test_matrix = np.array(test_array).flatten()
+test_matrix
+
+-- 출력 -- 
+array([1, 2, 3, 4, 1, 2, 3, 4])
