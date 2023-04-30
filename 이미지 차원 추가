@@ -1,0 +1,8 @@
+# 이런 에러가 발생 했을때
+# ValueError: Input 0 of layer "model_3" is incompatible with the layer: expected shape=(None, 32, 32, 3), found shape=(32, 32, 3)
+
+#차원을 추가하여 해결 (이 코드만으로는 실행이 안된다. 딥러닝 입문 (with Tensorflow) p158 신경망 시각화해보기 참조.)
+visual_model = tf.keras.models.Model(inputs=model.input, outputs=get_output)
+
+test_img = np.expand_dims(x_test[1], axis=0)
+feature_maps=visual_model.predict(test_img)
