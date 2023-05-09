@@ -1,0 +1,31 @@
+import numpy as np
+
+input = np.array([1,2,3,4,5])
+output = np.array([10,20,30,40,50])
+
+input_val = np.array([3,4,5,6,7])
+output_val = np.array([30,40,50,60,70])
+
+input_pred = np.array([10])
+
+
+import tensorflow as tf
+
+model=tf.keras.models.Sequential()
+model.add(tf.keras.layers.Dense(5, input_dim=1, activation='linear'))
+model.add(tf.keras.layers.Dense(1))
+
+sgd = tf.keras.optimizers.SGD(learning_rate=0.001)
+
+model.compile(optimizer=sgd, loss='mse', metrics=['acc'])
+
+model.summary()
+
+
+history = model.fit(input, output, epochs=100, batch_size=1, validation_data=(input_val, output_val))
+
+
+model.evaluate(input_val)
+
+
+model.predict(input_pred)
