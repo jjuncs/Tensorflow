@@ -1,0 +1,10 @@
+import os
+from distutils.dir_util import copy_tree
+
+from_file_path = '/content/' # 복사할 폴더
+to_file_path = '../content/a' # 복사 위치
+copy_tree(from_file_path, to_file_path)
+
+from_file_path = '/content/output' # 복사할 폴더
+to_file_path = '../content/a' # 복사 위치
+copy_tree(from_file_path, to_file_path)
