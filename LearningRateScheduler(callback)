@@ -1,0 +1,15 @@
+[LearningRateScheduler]
+
+###### 여기에 코드를 작성하시오 ######
+def lr_schedule(epoch):
+  if epoch < 10:
+    lr = 0.1 + (epoch * 0.1) 
+  else:
+    lr = 1.0 - (epoch * 0.04)
+  return lr
+
+callback = tf.keras.callbacks.LearningRateScheduler(lr_schedule, verbose=1)
+
+model3.compile(optimizer=tf.keras.optimizers.SGD(), loss=tf.keras.losses.CategoricalCrossentropy(), metrics=['accuracy'])  
+######################################
+history = model3.fit(x_train, y_train, epochs=25, validation_data=(x_test, y_test), callbacks=[callback], verbose=1)
