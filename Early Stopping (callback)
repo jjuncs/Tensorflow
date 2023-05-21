@@ -1,7 +1,6 @@
 [Early Stopping (callback)]
 
-
-saved_model = tf.keras.models.load_model('mymodel')  # save_dir로부터 tensorflow model을 load
+my_callback = callbacks.EarlyStopping(patience=1, monitor='val_accuracy')     
 
 ============= 아래 방법도 있다고는 함. ======================
 
