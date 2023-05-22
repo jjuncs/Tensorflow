@@ -12,3 +12,12 @@ copy_tree(from_file_path, to_file_path)
 from_file_path = '/content/output' # 복사할 폴더
 to_file_path = '../content/a' # 복사 위치
 copy_tree(from_file_path, to_file_path)
+
+
+
+
+### output 폴더 삭제
+
+directory = "/content"
+import shutil
+shutil.rmtree(directory+'/output')
