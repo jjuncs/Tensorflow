@@ -1,3 +1,5 @@
+[Linear regression]
+
 import numpy as np
 
 input = np.array([1,2,3,4,5])
