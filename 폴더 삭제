@@ -1,4 +1,0 @@
-# output 폴더 삭제
-directory = "/content"
-import shutil
-shutil.rmtree(directory+'/output')
