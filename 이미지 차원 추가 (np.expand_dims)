@@ -1,3 +1,5 @@
+[이미지 차원추가 (np.expand_dims)]
+
 # 이런 에러가 발생 했을때
 # ValueError: Input 0 of layer "model_3" is incompatible with the layer: expected shape=(None, 32, 32, 3), found shape=(32, 32, 3)
 
