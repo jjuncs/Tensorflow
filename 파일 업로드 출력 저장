@@ -1,4 +1,4 @@
-# 파일 불러오기
+# 파일 업로드 (불러오기)
 from google.colab import files
 
 uploaded = files.upload()
@@ -38,8 +38,6 @@ af.loc['1']
 af.loc['1']
 
 
-
-
 ###### json 파일 읽기
 
 import json
@@ -49,3 +47,10 @@ with open("sarcasm.json", 'r') as f:
         sentence = item['headline'].lower()
         label= item['is_sarcastic']
         link = item['article_link']
+        
+        
+        
+        
+# 파일 저장
+model.save("C:\\test.h5")
+#loaded_model = load_model("C:\test.h5")        
