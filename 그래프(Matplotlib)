@@ -1,3 +1,5 @@
+[그래프(Matplotlib)
+
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(18,6))
