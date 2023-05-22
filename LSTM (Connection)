@@ -1,3 +1,5 @@
+[LSTM (Connection)]
+
 #1. 데이터
 import numpy as np
 x_train = np.array([[1,2,3,4,5],[2,3,4,5,6],[3,4,5,6,7]])
