@@ -1,3 +1,5 @@
+[Numpy Reshape]
+
 import numpy as np;
 
 #예를 들면 (2,4) 차원의 배열을 reshape 기능을 통해 (8,) 차원으로 변경이 가능합니다.
