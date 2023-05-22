@@ -1,3 +1,4 @@
+[이미지를 배열로 변경 후 차원 추가]
 
 import sys
 import matplotlib.image as mpimg
