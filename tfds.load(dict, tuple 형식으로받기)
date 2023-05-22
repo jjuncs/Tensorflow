@@ -1,3 +1,5 @@
+[tfds.load (dict, tuple 형식으로 받기)]
+
 dataset = tfds.load(name='horses_or_humans', split=tfds.Split.TRAIN)
 
 # dict 형식으로 받는 경우 (as_supervised=False)
